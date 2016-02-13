@@ -49,12 +49,12 @@ function txtchar(c) {
 
 function latexchar(c) {
 	switch(c) {
-		case true : return '$\\top$';
-		case false : return '$\\perp$';
-		case '~' : return '$\\sim$';
+		case true : return 'T';
+		case false : return 'F';
+		case '~' : return '$\neg$';
 		case '&' : return '$\\&$';
 		case 'v' : return '$\\lor$';
-		case '>' : return '$\\rightarrow$';
+		case '>' : return '$\\supset$';
 		case '<>' : return '$\\leftrightarrow$';
 		case '|' : return '$|$';
 		case '#' : return '$\\perp$';
@@ -237,7 +237,7 @@ function latexTable(table,trees) {
 		for(var i=0;i<tbl.length;i++) { // i = table segment
 			for(var j=0;j<tbl[i][r].length;j++) { // r = row, j = cell
 				if(mcs[i-1]==j && r!=0) {
-					rw += '\\textcolor{red}{'+latexchar(tbl[i][r][j])+'} & '; // add main connective cell char
+					rw += '\\textbf{'+latexchar(tbl[i][r][j])+'} & '; // add main connective cell char
 				} else {
 					rw += latexchar(tbl[i][r][j])+' & '; // add cell char
 				}
